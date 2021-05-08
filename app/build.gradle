@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.qq_voicechange"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // TODO 第四步
+        externalNativeBuild {
+            cmake {
+                // cppFlags "" // 默认五大平台
+
+                // 指定CPU架构，Cmake的本地库， 例如：native-lib ---> armeabi-v7a
+                abiFilters "armeabi-v7a"
+            }
+        }
+
+        // TODO 第五步
+        // 指定CPU架构，打入APK lib/CPU平台
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    ndkVersion '22.1.7171670'
+
+    // sourceSet 可以修改 jniLibs 目录  修改成 aaa
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // TODO 第六步：主要是 有没有提供 java的 jar包
+    implementation files("libs\\fmod.jar");
+}

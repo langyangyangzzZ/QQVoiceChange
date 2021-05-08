@@ -1,0 +1,321 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class="QQBinDing">
+
+        <import type="com.qq.voicechange.QQBean" />
+
+        <variable
+            name="bean1"
+            type="com.qq.voicechange.QQBean" />
+
+        <variable
+            name="bean2"
+            type="com.qq.voicechange.QQBean" />
+
+        <variable
+            name="bean3"
+            type="com.qq.voicechange.QQBean" />
+
+        <variable
+            name="bean4"
+            type="com.qq.voicechange.QQBean" />
+
+        <variable
+            name="bean5"
+            type="com.qq.voicechange.QQBean" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="我知道遇见你不容易,错过了会很可惜,我不希望每天都是回忆,我希望余生每天都是你,我爱你"
+            android:textColor="#f00"
+            android:textSize="20dp"
+            android:layout_marginTop="40dp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/btn_normal"
+                        style="@style/AudioImgStyle"
+                        android:onClick="onFix"
+                        android:src="@drawable/record" />
+
+                    <TextView
+                        style="@style/AudioTextStyle"
+                        android:text="原声" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/btn_luoli"
+                        style="@style/AudioImgStyle"
+                        android:onClick="onFix"
+                        android:src="@drawable/luoli" />
+
+                    <TextView
+                        style="@style/AudioTextStyle"
+                        android:text="萝莉" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/btn_dashu"
+                        style="@style/AudioImgStyle"
+                        android:onClick="onFix"
+                        android:src="@drawable/dashu" />
+
+                    <TextView
+                        style="@style/AudioTextStyle"
+                        android:text="大叔" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/btn_jingsong"
+                        style="@style/AudioImgStyle"
+                        android:onClick="onFix"
+                        android:src="@drawable/jingsong" />
+
+                    <TextView
+                        style="@style/AudioTextStyle"
+                        android:text="惊悚" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/btn_gaoguai"
+                        style="@style/AudioImgStyle"
+                        android:onClick="onFix"
+                        android:src="@drawable/gaoguai" />
+
+                    <TextView
+                        style="@style/AudioTextStyle"
+                        android:text="搞怪" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/btn_kongling"
+                        style="@style/AudioImgStyle"
+                        android:onClick="onFix"
+                        android:src="@drawable/kongling" />
+
+                    <TextView
+                        style="@style/AudioTextStyle"
+                        android:text="空灵" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{bean1.getName}" />
+
+            <SeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:max="@{bean1.getMax}"
+                android:min="@{bean1.getMin}"
+                android:progress="@{bean1.getValue}" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(bean1.getValue)}" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{bean2.getName}" />
+
+            <SeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:max="@{bean2.getMax}"
+                android:min="@{bean2.getMin}"
+                android:progress="@{bean2.getValue}" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(bean2.getValue)}" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{bean3.getName}" />
+
+            <SeekBar
+                android:id="@+id/seekBar3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:max="@{bean3.getMax}"
+                android:min="@{bean3.getMin}"
+                android:progress="@{bean3.getValue}" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(bean3.getValue)}" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{bean4.getName}" />
+
+            <SeekBar
+                android:id="@+id/seekBar4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:max="@{bean4.getMax}"
+                android:min="@{bean4.getMin}"
+                android:progress="@{bean4.getValue}" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(bean4.getValue)}" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{bean5.getName}" />
+
+            <SeekBar
+                android:id="@+id/seekBar5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:max="@{bean5.getMax}"
+                android:min="@{bean5.getMin}"
+                android:progress="@{bean5.getValue}" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(bean5.getValue)}" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:onClick="onClick7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="播放调节后的音频" />
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
